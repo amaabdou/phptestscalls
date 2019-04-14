@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    public: false
+    autoconfigure: true
+
+  event_dispatcher:
+    class: Symfony\Component\EventDispatcher\EventDispatcher
+    public: true
+
+  PhpNumStats\Commands\AnalyseCommand:
+    tags:
+      - { name: 'console.command' }

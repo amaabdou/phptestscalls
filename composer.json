@@ -1,0 +1,54 @@
+{
+    "name": "amaabdou/php-numeric-stats",
+    "description": "PHP numeric code statistics tool about your code using PhpParser",
+    "type": "project",
+    "license": "MPL",
+    "autoload": {
+        "psr-4": {
+            "PhpNumStats\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "files": [
+            "vendor/symfony/var-dumper/Resources/functions/dump.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Ahmed Abdou",
+            "email": "mail@ahmed.nu"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "symfony/dependency-injection": "^4.2",
+        "symfony/console": "^4.2",
+        "symfony/config": "^4.2",
+        "symfony/yaml": "^4.2",
+        "symfony/event-dispatcher": "^4.2",
+        "symfony/finder": "^4.2",
+        "nikic/php-parser": "^4.2"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.11.2",
+        "roave/security-advisories": "dev-master",
+        "symfony/var-dumper": "^4.2",
+        "phpunit/phpunit": "^8.0",
+        "phpspec/prophecy": "^1.8",
+        "maglnet/composer-require-checker": "^1.1"
+    },
+    "scripts-descriptions": {
+        "test": "Run all tests!"
+    },
+    "scripts": {
+        "test": [
+            "@composer install",
+            "./vendor/bin/composer-require-checker",
+            "./vendor/bin/phpstan analyse src --level=max",
+            "./vendor/bin/phpunit"
+        ]
+    }
+}
